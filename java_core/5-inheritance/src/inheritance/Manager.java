@@ -1,5 +1,7 @@
 package inheritance;
 
+import java.util.Objects;
+
 public class Manager extends Employee {
 
     private double bonus;
@@ -24,5 +26,18 @@ public class Manager extends Employee {
 
     public void setBonus(double bonus) {
         this.bonus = bonus;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!super.equals(o)) return false;
+        Manager manager = (Manager) o;
+        return bonus == manager.bonus;
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(super.hashCode(), bonus);
     }
 }

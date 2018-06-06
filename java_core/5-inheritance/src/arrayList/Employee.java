@@ -1,6 +1,6 @@
-package inheritance;
+package arrayList;
 
-import java.time.*;
+import java.time.LocalDate;
 import java.util.Objects;
 
 public class Employee {
@@ -10,7 +10,7 @@ public class Employee {
     private LocalDate hriDay;
 
 
-    public Employee(String name, double salary, int year, int month, int day ) {
+    public Employee(String name, double salary, int year, int month, int day) {
         this.name = name;
         this.salary = salary;
         hriDay = LocalDate.of(year, month, day);
@@ -51,7 +51,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return getClass().getName() +"{" +
+        return getClass().getName() + "{" +
                 "name='" + name + '\'' +
                 ", salary=" + salary +
                 ", hriDay=" + hriDay +
