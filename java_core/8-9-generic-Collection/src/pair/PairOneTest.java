@@ -3,7 +3,7 @@ package pair;
 public class PairOneTest {
 
     public static void main(String[] args) {
-        String[] words = {"Mary", "had", "a", "little", "lamb"};
+        String[] words = {"a","Mary", "had",  "little", "lamb"};
         PairOne<String> mm = ArrayAlg.minmax(words);
         System.out.println("min = " + mm.getFirst());
         System.out.println("max = " + mm.getSecond());
