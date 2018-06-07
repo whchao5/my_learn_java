@@ -18,14 +18,22 @@ public class Bounce {
 
 class BounceFrame extends JFrame {
 
-    public static final int STEPS = 1000;
-    public static final int DELAY = 3;
+    private             BallComponent comp;
+    public static final int           STEPS = 1000;
+    public static final int           DELAY = 3;
+
 
     public BounceFrame() {
         setTitle("Bounce");
+
+        comp = new BallComponent();
+        add(comp, BorderLayout.CENTER);
+
         JPanel buttonPanel = new JPanel();
-        addButton(buttonPanel, "close", event->System.exit(0));
+        addButton(buttonPanel, "Start", event -> addBall());
+        addButton(buttonPanel, "close", event -> System.exit(0));
         add(buttonPanel, BorderLayout.SOUTH);
+
         pack();
     }
 
@@ -33,5 +41,24 @@ class BounceFrame extends JFrame {
         JButton button = new JButton(title);
         c.add(button);
         button.addActionListener(listener);
+    }
+
+    public void addBall() {
+
+        try {
+
+
+            Ball ball = new Ball();
+            comp.add(ball);
+
+            for (int i = 0; i <= STEPS; i++) {
+                ball.move(comp.getBounds());
+                comp.print(comp.getGraphics());
+                Thread.sleep(DELAY);
+            }
+        } catch (InterruptedException e) {
+
+        }
+
     }
 }
