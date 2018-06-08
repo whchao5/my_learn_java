@@ -18,9 +18,9 @@ public class Bounce {
 
 class BounceFrame extends JFrame {
 
-    private             BallComponent comp;
-    public static final int           STEPS = 1000;
-    public static final int           DELAY = 3;
+    private BallComponent comp;
+    public static final int STEPS = 1000;
+    public static final int DELAY = 3;
 
 
     public BounceFrame() {
@@ -30,7 +30,7 @@ class BounceFrame extends JFrame {
         add(comp, BorderLayout.CENTER);
 
         JPanel buttonPanel = new JPanel();
-        addButton(buttonPanel, "Start", event -> addBall());
+        addButton(buttonPanel, "Start", event -> moreAddBall());
         addButton(buttonPanel, "close", event -> System.exit(0));
         add(buttonPanel, BorderLayout.SOUTH);
 
@@ -43,10 +43,10 @@ class BounceFrame extends JFrame {
         button.addActionListener(listener);
     }
 
+    // 单线程案例
     public void addBall() {
 
         try {
-
 
             Ball ball = new Ball();
             comp.add(ball);
@@ -59,6 +59,28 @@ class BounceFrame extends JFrame {
         } catch (InterruptedException e) {
 
         }
+    }
 
+    // 多线程案例
+    public void moreAddBall() {
+
+        Ball ball = new Ball();
+        comp.add(ball);
+
+        Runnable r = () -> {
+            try {
+
+                for (int i = 0; i <= STEPS; i++) {
+                    ball.move(comp.getBounds());
+                    comp.print(comp.getGraphics());
+                    Thread.sleep(DELAY);
+                }
+            } catch (InterruptedException e) {
+
+            }
+        };
+
+        Thread t = new Thread(r);
+        t.start();
     }
 }
