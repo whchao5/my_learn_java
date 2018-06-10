@@ -1,4 +1,44 @@
 package com.whchao.demo.service;
 
-public class AreaService {
+
+import com.whchao.demo.entity.Area;
+
+import java.util.List;
+
+public interface AreaService {
+
+    /**
+     * 列表
+     * @return
+     */
+    List<Area> getAreaList();
+
+    /**
+     * 获取
+     * @param id
+     * @return
+     */
+    Area getAreaById(int id);
+
+    /**
+     * 添加
+     * @param area
+     * @return
+     */
+    boolean addArea(Area area);
+
+    /**
+     * 修改
+     * @param area
+     * @return
+     */
+    boolean modifyArea(Area area);
+
+    /**
+     * 删除
+     * @param id
+     * @return
+     */
+    boolean deleteArea(int id);
+
 }

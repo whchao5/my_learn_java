@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.whchao.demo.dao.AreaDao">
+    <select id="queryArea" resultType="com.whchao.demo.entity.Area">
+      SELECT id, name, priority,create_time, last_edit_time FROM area ORDER BY priority DESC
+    </select>
+
+    <select id="queryAreaById" resultType="com.whchao.demo.entity.Area">
+SELECT id, name, priority,create_time, last_edit_time FROM area WHERE id=#{id}
+    </select>
+
+    <insert id="insertArea" useGeneratedKeys="true" keyProperty="id" parameterType="com.whchao.demo.entity.Area">
+
+        INSERT INTO
+		area(name,priority,
+		create_time,last_edit_time)
+		VALUES
+		(#{name},#{priority},
+		#{createTime},#{lastEditTime})
+
+    </insert>
+    
+    <update id="updateArea" parameterType="com.whchao.demo.entity.Area">
+        UPDATE area
+        <set>
+            <if test="name != null">name=#{name},</if>
+            <if test="priority  != null">priority=#{priority},</if>
+            <if test="lastEditTime  != null">last_edit_time = #{lastEditTime },</if>
+        </set>
+        where id=#{id}
+    </update>
+
+    <delete id="deleteArea">
+        delete from area where id = #{id}
+    </delete>
+</mapper>
