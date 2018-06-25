@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.whchao.demo.dao.BookDao">
+
+    <select id="queryBook" resultType="com.whchao.demo.entity.Book">
+      SELECT * FROM `book`
+    </select>
+
+
+    <select id="queryBookById" resultType="com.whchao.demo.entity.Book">
+SELECT * FROM book WHERE book_id=#{id}
+    </select>
+
+</mapper>

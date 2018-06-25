@@ -24,6 +24,7 @@ public class AreaDaoTest {
     @Test
     public void queryArea() {
         List<Area> areaList = areaDao.queryArea();
+        System.out.println(areaList);
 
         // 验证预期值和实际值是否相符
         assertEquals(false, areaList.isEmpty());
@@ -32,6 +33,8 @@ public class AreaDaoTest {
     @Test
     public void queryAreaById() {
         Area area = areaDao.queryAreaById(1);
+        System.out.println(area);
+
 //        assertEquals(1, area.getName());
         assertEquals(1, area.getId().intValue());
     }
