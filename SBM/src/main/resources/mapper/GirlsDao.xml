@@ -9,8 +9,15 @@
     </select>
 
     <select id="queryGirlsById" resultType="com.whchao.demo.entity.Girls">
-SELECT girl_id, girl_age, girl_name FROM `girls` WHERE girl_id=#{girl_id}
+      SELECT * FROM `girls` WHERE girls_id=#{girl_id}
     </select>
 
+
+    <insert id="insertGirls"  useGeneratedKeys="true" keyProperty="id" parameterType="com.whchao.demo.entity.Girls">
+        INSERT INTO
+		girls(age,	name)
+		VALUES
+		(#{age},#{name})
+    </insert>
 
 </mapper>

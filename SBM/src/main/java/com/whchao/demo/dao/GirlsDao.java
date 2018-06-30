@@ -18,10 +18,10 @@ public interface GirlsDao {
      *
      * @return Girls
      */
-//    Girls queryGirlsById(int girl_id);
+    Girls queryGirlsById(int girl_id);
 
 
-//    int insertGirls(Girls girl);
+    int insertGirls(Girls girl);
 
 
     /**

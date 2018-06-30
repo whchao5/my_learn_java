@@ -5,16 +5,17 @@ import java.util.Date;
 
 public class Girls {
 
-    private Integer girl_id;
+    private Integer id;
     private Integer age;
     private String  name;
 
-    public Integer getGirl_id() {
-        return girl_id;
+
+    public Integer getId() {
+        return id;
     }
 
-    public void setGirl_id(Integer girl_id) {
-        this.girl_id = girl_id;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Integer getAge() {
@@ -36,7 +37,7 @@ public class Girls {
     @Override
     public String toString() {
         return "Girls{" +
-                "girl_id=" + girl_id +
+                "id=" + id +
                 ", age=" + age +
                 ", name='" + name + '\'' +
                 '}';

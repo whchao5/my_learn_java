@@ -27,12 +27,24 @@ public class GirlsDaoTest {
     }
 
 
-//    @Test
-//    public void queryGirlById() {
-//        Girls girl = girlsDao.queryGirlsById(1);
-//        System.out.println(girl);
-////        assertEquals(1, area.getName());
-//        assertEquals(1, girl.getGirl_id().intValue());
-//    }
+    @Test
+    public void queryGirlById() {
+        Girls girl = girlsDao.queryGirlsById(2);
+        System.out.println(girl);
+        assertEquals(2, girl.getId().intValue());
+    }
+
+    @Test
+    public void insertArea() {
+        // 创建一个区域
+        Girls girl = new Girls();
+        girl.setName("keowws");
+        girl.setAge(14);
+
+        int effectedNum = girlsDao.insertGirls(girl);
+        System.out.println(effectedNum);
+
+        assertEquals(1, effectedNum);
+    }
 
 }
