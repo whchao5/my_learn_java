@@ -1,0 +1,41 @@
+.container {
+  display: table;
+  align-items: center;
+  box-sizing: border-box;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  text-align: center;
+  width: 100%;
+}
+
+.widget {
+  border: #ddd 1px solid;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  margin-bottom: 5rpx;
+  margin-top: 5rpx;
+  position: relative;
+}
+
+.column {
+  width: 4rem;
+  display: inline-table;
+}
+
+.link-column {
+  width: 6rem;
+  display: inline-table;
+}
+.link {
+  color: blue;
+  display: inline-table
+}
+
+.widget-body {
+  margin-bottom: 20px;
+}
+
+.button_margin {
+  margin-right: 10px;
+  margin-left: 10px;
+}

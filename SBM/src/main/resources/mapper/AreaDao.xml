@@ -14,11 +14,9 @@ SELECT id, name, priority,create_time, last_edit_time FROM area WHERE id=#{id}
     <insert id="insertArea" useGeneratedKeys="true" keyProperty="id" parameterType="com.whchao.demo.entity.Area">
 
         INSERT INTO
-		area(name,priority,
-		create_time,last_edit_time)
+		area(name,priority)
 		VALUES
-		(#{name},#{priority},
-		#{createTime},#{lastEditTime})
+		(#{name},#{priority})
 
     </insert>
     
@@ -27,7 +25,6 @@ SELECT id, name, priority,create_time, last_edit_time FROM area WHERE id=#{id}
         <set>
             <if test="name != null">name=#{name},</if>
             <if test="priority  != null">priority=#{priority},</if>
-            <if test="lastEditTime  != null">last_edit_time = #{lastEditTime },</if>
         </set>
         where id=#{id}
     </update>

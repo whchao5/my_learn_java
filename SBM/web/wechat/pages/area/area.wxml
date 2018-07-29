@@ -1,0 +1,24 @@
+<view class="container">
+  <view class='widget'>
+    <view class='column'>ID</view>
+    <view class='column'>区域名</view>
+    <view class='column'>优先级</view>
+    <view class='link-column'>操作</view>
+  </view>
+
+  <view class='widget-body'>
+      <view class='' wx:for="{{ area_list }}" wx:key="id">
+        <text class="column">{{item.id}}</text>
+        <text class="column">{{item.name}}</text>
+        <text class="column">{{item.priority}}</text>
+        <view class="link-column">
+          <navigator class="link" url="/pages/area_operation/area_operation?areaId={{item.id}}">编辑</navigator> |
+          <text class="link" bindtap="deleteArea" data-areaid="{{item.id}}" data-areaname="{{item.name}}" data-index="{{index}}" >删除</text>
+        </view>
+      </view>
+  </view>
+
+  <view class='button_margin'>
+  <button type="primary" bindtap="addArea">添加区域信息</button>
+  </view>
+</view>

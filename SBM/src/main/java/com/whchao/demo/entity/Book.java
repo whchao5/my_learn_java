@@ -4,16 +4,16 @@ import java.math.BigInteger;
 
 public class Book {
 
-    private Integer book_id;
+    private Integer bookId;
     private String name;
     private Integer number;
 
     public Integer getBook_id() {
-        return book_id;
+        return bookId;
     }
 
     public void setBook_id(Integer book_id) {
-        this.book_id = book_id;
+        this.bookId = book_id;
     }
 
     public String getName() {
@@ -35,7 +35,7 @@ public class Book {
     @Override
     public String toString() {
         return "Book{" +
-                "book_id=" + book_id +
+                "book_id=" + bookId +
                 ", name='" + name + '\'' +
                 ", number=" + number +
                 '}';

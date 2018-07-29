@@ -30,6 +30,8 @@ public class AreaServiceImpl implements AreaService {
     public boolean addArea(Area area) {
 
         if (area.getName() != null && !"".equals(area.getName())) {
+
+            area.setCreateTime(new Date());
             area.setLastEditTime(new Date());
 
             try {
