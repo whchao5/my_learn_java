@@ -5,6 +5,8 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.whchao.demo.entity.Area;
 import com.whchao.demo.service.AreaService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +27,8 @@ import java.util.Map;
 @RequestMapping("/admin")
 public class AreaController {
 
+    private static Logger log = LoggerFactory.getLogger(AreaController.class);
+
     @Autowired
     private AreaService areaService;
 
@@ -38,6 +42,7 @@ public class AreaController {
 
         modelMap.put("areaList", areaList);
 
+        log.info("areaList");
         return modelMap;
     }
 
