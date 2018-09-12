@@ -1,4 +1,4 @@
-package com.whchao.demo.handler;
+package com.whchao.demo.config.handler;
 
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
