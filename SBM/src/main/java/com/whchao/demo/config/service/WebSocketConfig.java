@@ -18,6 +18,7 @@ public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
         stompEndpointRegistry.addEndpoint("/endpoint").withSockJS();//注册STOMP协议的节点，映射指定的URL，并指定使用SockJS协议
     }
 
+
     @Override
     public void configureMessageBroker(MessageBrokerRegistry registry) {//配置消息代码（Message Broker）
         registry.enableSimpleBroker("/topic");//广播式应配置一个/topic消息代理
