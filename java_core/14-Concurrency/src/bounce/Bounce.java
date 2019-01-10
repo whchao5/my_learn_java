@@ -80,6 +80,8 @@ class BounceFrame extends JFrame {
             }
         };
 
+//        Runnable r  =  addBall();
+
         Thread t = new Thread(r);
         t.start();
     }
