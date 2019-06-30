@@ -1,8 +1,9 @@
 package com.whchao.demo.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Area {
+public class Area implements Serializable {
 
     private Integer id;
     private String  name;

@@ -6,11 +6,15 @@ import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 @Component
 public class StaticJob {
 
     private static Logger logger = LoggerFactory.getLogger(StaticJob.class);
 
+    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
     private final static long SECOND = 1000;
 
     /**
@@ -18,7 +22,7 @@ public class StaticJob {
      */
     @Scheduled(fixedRate = 10 * SECOND)
     public void fixedDelayJob() {
-        logger.info("fixedDelay");
+        logger.info("现在时间：" + dateFormat.format(new Date()));
     }
 
 }
