@@ -1,4 +1,5 @@
-package com.whchao.demo.webservices.service;
+package com.whchao.demo.webservices.type;
+
 
 
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
@@ -13,9 +14,12 @@ import org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition;
 import org.springframework.xml.xsd.SimpleXsdSchema;
 import org.springframework.xml.xsd.XsdSchema;
 
+
+
 @EnableWs
 @Configuration
-public class WebServiceConfig extends WsConfigurerAdapter {
+public class WebServiceConfig {
+
     @Bean
     public ServletRegistrationBean messageDispatcherServlet(ApplicationContext applicationContext) {
         MessageDispatcherServlet servlet = new MessageDispatcherServlet();
@@ -23,17 +27,21 @@ public class WebServiceConfig extends WsConfigurerAdapter {
         servlet.setTransformWsdlLocations(true);
         return new ServletRegistrationBean(servlet, "/ws/*");
     }
-
     @Bean(name = "countries")
     public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema countriesSchema) {
+//        DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
+//        wsdl11Definition.setPortTypeName("CountriesPort");
+//        wsdl11Definition.setSchema(countriesSchema);
+//        return wsdl11Definition;
+
+
         DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
         wsdl11Definition.setPortTypeName("CountriesPort");
         wsdl11Definition.setLocationUri("/ws");
-        wsdl11Definition.setTargetNamespace("https://spring.io/guides/gs/producing-web-service");
+
         wsdl11Definition.setSchema(countriesSchema);
         return wsdl11Definition;
     }
-
     @Bean
     public XsdSchema countriesSchema() {
         return new SimpleXsdSchema(new ClassPathResource("countries.xsd"));

@@ -1,8 +1,7 @@
 package com.whchao.demo;
 
 
-import com.whchao.demo.webservices.client.CountryClient;
-import com.whchao.demo.webservices.service.GetCountryResponse;
+//import com.whchao.demo.webservices.client.CountryClient;
 import org.springframework.boot.CommandLineRunner;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;

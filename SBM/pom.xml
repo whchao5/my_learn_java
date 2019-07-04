@@ -132,6 +132,8 @@
             <artifactId>wsdl4j</artifactId>
         </dependency>
 
+
+
     </dependencies>
 
     <build>
@@ -161,38 +163,51 @@
                 </executions>
                 <configuration>
                     <schemaLanguage>WSDL</schemaLanguage>
-                    <generatePackage>hello.wsdl</generatePackage>
+                    <generatePackage>com.whchao.demo.webservices</generatePackage>
+                    <generateDirectory>${basedir}/src/main/java</generateDirectory>
                     <schemas>
                         <schema>
+                            <fileset>
+                                <!-- Defaults to schemaDirectory. -->
+                                <directory>${project.basedir}/src/main/resources/</directory>
+                                <!-- Defaults to schemaIncludes. -->
+                                <includes>
+                                    <include>*.wsdl</include>
+                                </includes>
+                                <!-- Defaults to schemaIncludes -->
+                                <!--<excludes>-->
+                                <!--<exclude>*.xs</exclude>-->
+                                <!--</excludes>-->
+                            </fileset>
                             <url>http://localhost:8082/ws/countries.wsdl</url>
                         </schema>
                     </schemas>
                 </configuration>
             </plugin>
             <!-- end::wsdl[] -->
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>jaxb2-maven-plugin</artifactId>
-                <version>1.6</version>
-                <executions>
-                    <execution>
-                        <id>xjc</id>
-                        <goals>
-                            <goal>xjc</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <schemaDirectory>${project.basedir}/src/main/resources/</schemaDirectory>
-                    <outputDirectory>${project.basedir}/src/main/java</outputDirectory>
-                    <clearOutputDir>false</clearOutputDir>
-                </configuration>
-            </plugin>
+            <!--<plugin>-->
+                <!--<groupId>org.codehaus.mojo</groupId>-->
+                <!--<artifactId>jaxb2-maven-plugin</artifactId>-->
+                <!--<version>1.6</version>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<id>xjc</id>-->
+                        <!--<goals>-->
+                            <!--<goal>xjc</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+                <!--<configuration>-->
+                    <!--<schemaDirectory>${project.basedir}/src/main/resources/</schemaDirectory>-->
+                    <!--<outputDirectory>${project.basedir}/src/main/java</outputDirectory>-->
+                    <!--<packageName>com.whchao.demo.webservices.type</packageName>-->
+                    <!--<clearOutputDir>false</clearOutputDir>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
 
 
         </plugins>
 
     </build>
-
 
 </project>

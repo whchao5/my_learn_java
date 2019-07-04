@@ -1,6 +1,12 @@
-package com.whchao.demo.webservices.service;
+//
+// 此文件是由 JavaTM Architecture for XML Binding (JAXB) 引用实现 v2.2.7 生成的
+// 请访问 <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// 在重新编译源模式时, 对此文件的所有修改都将丢失。
+// 生成时间: 2019.07.04 时间 10:20:34 AM CST 
+//
 
-import com.whchao.demo.webservices.service.Currency;
+
+package com.whchao.demo.webservices.type;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -8,12 +14,11 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
-
 /**
- * <p>Java class for country complex type.
- *
- * <p>The following schema fragment specifies the expected content contained within this class.
- *
+ * <p>country complex type的 Java 类。
+ * 
+ * <p>以下模式片段指定包含在此类中的预期内容。
+ * 
  * <pre>
  * &lt;complexType name="country">
  *   &lt;complexContent>
@@ -22,117 +27,115 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="population" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="capital" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="currency" type="{http://spring.io/guides/gs-producing-web-service}currency"/>
+ *         &lt;element name="currency" type="{http://spring.io/guides/gs/producing-web-service}currency"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- *
- *
+ * 
+ * 
  */
-
-
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "country", propOrder = {
-        "name",
-        "population",
-        "capital",
-        "currency"
+    "name",
+    "population",
+    "capital",
+    "currency"
 })
 public class Country {
 
     @XmlElement(required = true)
-    protected String   name;
-    protected int      population;
+    protected String name;
+    protected int population;
     @XmlElement(required = true)
-    protected String   capital;
+    protected String capital;
     @XmlElement(required = true)
     protected Currency currency;
 
     /**
-     * Gets the value of the name property.
-     *
+     * 获取name属性的值。
+     * 
      * @return
      *     possible object is
      *     {@link String }
-     *
+     *     
      */
     public String getName() {
         return name;
     }
 
     /**
-     * Sets the value of the name property.
-     *
+     * 设置name属性的值。
+     * 
      * @param value
      *     allowed object is
      *     {@link String }
-     *
+     *     
      */
     public void setName(String value) {
         this.name = value;
     }
 
     /**
-     * Gets the value of the population property.
-     *
+     * 获取population属性的值。
+     * 
      */
     public int getPopulation() {
         return population;
     }
 
     /**
-     * Sets the value of the population property.
-     *
+     * 设置population属性的值。
+     * 
      */
     public void setPopulation(int value) {
         this.population = value;
     }
 
     /**
-     * Gets the value of the capital property.
-     *
+     * 获取capital属性的值。
+     * 
      * @return
      *     possible object is
      *     {@link String }
-     *
+     *     
      */
     public String getCapital() {
         return capital;
     }
 
     /**
-     * Sets the value of the capital property.
-     *
+     * 设置capital属性的值。
+     * 
      * @param value
      *     allowed object is
      *     {@link String }
-     *
+     *     
      */
     public void setCapital(String value) {
         this.capital = value;
     }
 
     /**
-     * Gets the value of the currency property.
-     *
+     * 获取currency属性的值。
+     * 
      * @return
      *     possible object is
      *     {@link Currency }
-     *
+     *     
      */
     public Currency getCurrency() {
         return currency;
     }
 
     /**
-     * Sets the value of the currency property.
-     *
+     * 设置currency属性的值。
+     * 
      * @param value
      *     allowed object is
      *     {@link Currency }
-     *
+     *     
      */
     public void setCurrency(Currency value) {
         this.currency = value;
