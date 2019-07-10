@@ -1,6 +1,7 @@
 package com.whchao.demo.rabbitmq;
 
 import com.whchao.demo.rabbit.hello.HelloSender;
+import com.whchao.demo.rabbit.hello.MySender;
 import com.whchao.demo.rabbit.object.ObjectSender;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,6 +18,9 @@ public class HelloTest {
 
     @Autowired
     private ObjectSender objectSender;
+
+    @Autowired
+    private MySender mySender;
 
     @Test
     public void hello() throws Exception {
@@ -35,5 +39,16 @@ public class HelloTest {
 //            Thread.sleep(100);
             objectSender.send();
 //        }
+    }
+
+
+
+    @Test
+    public void MyQueue() throws Exception {
+
+        for (int i = 0; i < 500; i++) {
+//            Thread.sleep(100);
+            mySender.send();
+        }
     }
 }
