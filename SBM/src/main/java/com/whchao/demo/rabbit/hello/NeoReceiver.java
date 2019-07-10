@@ -13,6 +13,8 @@ public class NeoReceiver {
 
     private static Logger log = LoggerFactory.getLogger(NeoReceiver.class);
 
+    private static final String neos = "neo";
+
     @RabbitHandler
     public void process(String neo) {
 //        System.out.println("Receiver : " + neo);
