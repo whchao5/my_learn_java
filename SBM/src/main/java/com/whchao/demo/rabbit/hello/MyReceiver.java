@@ -27,7 +27,7 @@ public class MyReceiver {
 //    @RabbitListener(queues = "my_queue")
     @RabbitListener(queuesToDeclare = @Queue(queueName))
     public void process(String hello) {
-        @RabbitListener(queuesToDeclare = @Queue(queueName))
+//        @RabbitListener(queuesToDeclare = @Queue(queueName))
 
 //        System.out.println("Receiver : " + hello);
         log.info("my_queue : " + hello);
