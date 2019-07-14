@@ -20,9 +20,9 @@ public class StaticJob {
     /**
      * fixedDelay: 固定延迟时间执行
      */
-    @Scheduled(fixedRate = 10 * SECOND)
-    public void fixedDelayJob() {
-        logger.info("现在时间：" + dateFormat.format(new Date()));
-    }
+//    @Scheduled(fixedRate = 10 * SECOND)
+//    public void fixedDelayJob() {
+//        logger.info("现在时间：" + dateFormat.format(new Date()));
+//    }
 
 }
