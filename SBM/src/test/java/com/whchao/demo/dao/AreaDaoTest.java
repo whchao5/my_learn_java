@@ -1,6 +1,7 @@
 package com.whchao.demo.dao;
 
 import com.whchao.demo.entity.Area;
+import com.whchao.demo.entity.UserInfo;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,6 +21,9 @@ public class AreaDaoTest {
 
     @Autowired
     private AreaDao areaDao;
+
+    @Autowired
+    private UserInfoDao userInfoDao;
 
     @Test
     public void queryArea() {
@@ -85,5 +89,25 @@ public class AreaDaoTest {
         areaList = areaDao.queryArea();
         assertEquals(false, areaList.isEmpty());
 
+    }
+
+
+    @Test
+    public void queryByName() {
+        Area area = areaDao.findByName("东北");
+        System.out.println(area);
+
+//        assertEquals(1, area.getName());
+        assertEquals(1, area.getId().intValue());
+    }
+
+
+    @Test
+    public void queryUserInfo() {
+        UserInfo area = userInfoDao.findByUsername("admin");
+        System.out.println(area.toString());
+
+//        assertEquals(1, area.getName());
+        assertEquals(1, area.getUid().intValue());
     }
 }

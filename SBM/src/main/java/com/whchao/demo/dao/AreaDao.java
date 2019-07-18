@@ -1,8 +1,12 @@
 package com.whchao.demo.dao;
 
 import com.whchao.demo.entity.Area;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Service;
+import sun.rmi.runtime.Log;
 
 import java.util.List;
+
 
 public interface AreaDao {
 
@@ -40,6 +44,9 @@ public interface AreaDao {
      */
 
     int deleteArea(int id);
+
+
+    public Area findByName(String name);
 
 }
 

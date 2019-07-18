@@ -2,6 +2,7 @@ package com.whchao.demo.service;
 
 
 import com.whchao.demo.entity.Area;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
