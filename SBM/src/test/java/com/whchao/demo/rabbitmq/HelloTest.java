@@ -2,7 +2,7 @@ package com.whchao.demo.rabbitmq;
 
 import com.whchao.demo.rabbit.hello.HelloSender;
 import com.whchao.demo.rabbit.hello.MySender;
-import com.whchao.demo.rabbit.object.ObjectSender;
+//import com.whchao.demo.rabbit.object.ObjectSender;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +16,8 @@ public class HelloTest {
     @Autowired
     private HelloSender helloSender;
 
-    @Autowired
-    private ObjectSender objectSender;
+//    @Autowired
+//    private ObjectSender objectSender;
 
     @Autowired
     private MySender mySender;
@@ -32,14 +32,14 @@ public class HelloTest {
     }
 
 
-    @Test
-    public void object() throws Exception {
+//    @Test
+//    public void object() throws Exception {
 
 //        for (int i = 0; i < 50; i++) {
 //            Thread.sleep(100);
-            objectSender.send();
+//            objectSender.send();
 //        }
-    }
+//    }
 
 
 

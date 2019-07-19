@@ -1,11 +1,18 @@
 package com.whchao.demo.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
 
+@Entity
 public class Area implements Serializable {
 
+    @Id
+    @GeneratedValue
     private Integer id;
+
     private String  name;
     // 权重，越大越排前显示
     private Integer priority;

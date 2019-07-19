@@ -11,24 +11,24 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Component
-public class ObjectSender {
-
-    private static Logger log = LoggerFactory.getLogger(ObjectSender.class);
-
-    @Autowired
-    private AmqpTemplate rabbitTemplate;
-
-
-    @Autowired
-    private AreaService areaService;
-
-
-    public void send() {
-
-        List<Area> areaList = areaService.getAreaList();
-
-        log.info("areaList ：" + areaList.toString());
-        this.rabbitTemplate.convertAndSend("object", areaList);
-    }
-}
+//@Component
+//public class ObjectSender {
+//
+//    private static Logger log = LoggerFactory.getLogger(ObjectSender.class);
+//
+//    @Autowired
+//    private AmqpTemplate rabbitTemplate;
+//
+//
+//    @Autowired
+//    private AreaService areaService;
+//
+//
+//    public void send() {
+//
+//        List<Area> areaList = areaService.getAreaList();
+//
+//        log.info("areaList ：" + areaList.toString());
+//        this.rabbitTemplate.convertAndSend("object", areaList);
+//    }
+//}

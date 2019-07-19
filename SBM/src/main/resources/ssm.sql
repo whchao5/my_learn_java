@@ -101,7 +101,7 @@ CREATE TABLE IF NOT EXISTS `girls` (
   `age` int(11) NOT NULL,
   `name` varchar(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='妹子表';
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='妹子表';
 
 --
 -- 转存表中的数据 `girls`
@@ -127,7 +127,7 @@ CREATE TABLE IF NOT EXISTS `person` (
   `name` varchar(32) NOT NULL,
   `phone` varchar(32) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
