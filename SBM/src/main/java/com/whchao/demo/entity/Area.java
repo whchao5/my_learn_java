@@ -1,8 +1,6 @@
 package com.whchao.demo.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -10,13 +8,15 @@ import java.util.Date;
 public class Area implements Serializable {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String  name;
     // 权重，越大越排前显示
     private Integer priority;
     private Date    createTime;
+
+    @Column(nullable = false)
     private Date    lastEditTime;
 
     public Integer getId() {

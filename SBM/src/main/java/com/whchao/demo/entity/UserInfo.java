@@ -9,7 +9,7 @@ import java.util.List;
 public class UserInfo implements Serializable {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer       uid;
     private String        username;//帐号
     private String        name;//名称（昵称或者真实姓名，不同系统不同定义）

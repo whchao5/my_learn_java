@@ -11,21 +11,23 @@ import sun.rmi.runtime.Log;
 import java.util.List;
 
 
-public interface AreaDao extends CrudRepository<Area, Long> {
-    //public interface AreaDao  extends JpaSpecificationExecutor<Area>,JpaRepository<Area,Integer> {
+//public interface AreaDao extends CrudRepository<Area, Long> {
+    public interface AreaDao  extends JpaSpecificationExecutor<Area>,JpaRepository<Area,Integer> {
 
     /**
      * 列出区域列表
      *
      * @return areaList
      */
-//    @Query(value = "SELECT id, name, priority, createTime, lastEditTime FROM Area ORDER BY priority DESC")
-//    List<Area> queryArea();
+    @Query(value = "SELECT id, name, priority, create_time, last_edit_time FROM area ORDER BY priority DESC", nativeQuery = true)
+    List<Area> queryArea();
 
 
     List<Area> findAll();
 
     Area findByName(String name);
+
+//    save(Area area);
 
     /**
      * 根据Id列出具体区域
