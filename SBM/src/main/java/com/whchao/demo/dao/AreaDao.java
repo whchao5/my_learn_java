@@ -3,6 +3,7 @@ package com.whchao.demo.dao;
 import com.whchao.demo.entity.Area;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
@@ -27,6 +28,8 @@ import java.util.List;
 
     Area findByName(String name);
 
+    Area findById(int name);
+
 //    save(Area area);
 
     /**
@@ -47,7 +50,6 @@ import java.util.List;
      * @param area
      * @return
      */
-    //    int updateArea(Area area);
 
     /**
      * 删除区域信息

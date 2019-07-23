@@ -16,7 +16,6 @@ public class Area implements Serializable {
     private Integer priority;
     private Date    createTime;
 
-    @Column(nullable = false)
     private Date    lastEditTime;
 
     public Integer getId() {

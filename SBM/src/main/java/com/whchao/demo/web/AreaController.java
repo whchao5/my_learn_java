@@ -27,68 +27,68 @@ import java.util.Map;
 @RequestMapping("/admin")
 public class AreaController {
 
-//    private static Logger log = LoggerFactory.getLogger(AreaController.class);
-//
-//    @Autowired
-//    private AreaService areaService;
-//
-//    @RequestMapping(value = "/listarea", method = RequestMethod.GET)
-//    private Map<String, Object> listArea() {
-//        Map<String, Object> modelMap = new HashMap<String, Object>();
-//
-//        List<Area> areaList = new ArrayList<Area>();
-//
-//        areaList = areaService.getAreaList();
-//
-//        modelMap.put("areaList", areaList);
-//
-//        log.info("areaList");
-//        return modelMap;
-//    }
-//
-//    @RequestMapping(value = "/getareabyid", method = RequestMethod.GET)
-////    http://localhost:8082/admin/getareabyid?id=1
-//    private Map<String, Object> getAreaById(Integer id) {
-//        Map<String, Object> modelMap = new HashMap<String, Object>();
-//
-//        Area area = areaService.getAreaById(id);
-//        modelMap.put("area", area);
-//        return modelMap;
-//    }
-//
-//    @RequestMapping(value = "/addarea", method = RequestMethod.POST)
-//    private Map<String, Object> addArea(@RequestBody Area area) throws
-//            JsonParseException, JsonMappingException, IOException {
-//
-//        System.out.println(area.toString());
-//        Map<String, Object> modelMap = new HashMap<String, Object>();
-//        modelMap.put("success", areaService.addArea(area));
-//
-//        return modelMap;
-//    }
-//
-//    /**
-//     * 修改区域信息，主要修改名字
-//     *
-//     * @return
-//     * @throws IOException
-//     * @throws JsonMappingException
-//     * @throws JsonParseException
-//     */
-//    @RequestMapping(value = "/modifyarea", method = RequestMethod.POST)
-//    private Map<String, Object> modifyArea(@RequestBody Area area)
-//            throws JsonParseException, JsonMappingException, IOException {
-//        Map<String, Object> modelMap = new HashMap<String, Object>();
-//        // 修改区域信息
-//        modelMap.put("success", areaService.modifyArea(area));
-//        return modelMap;
-//    }
-//
-//    @RequestMapping(value = "/removearea", method = RequestMethod.GET)
-//    private Map<String, Object> removeArea(Integer areaId) {
-//        Map<String, Object> modelMap = new HashMap<String, Object>();
-//        // 修改区域信息
-//        modelMap.put("success", areaService.deleteArea(areaId));
-//        return modelMap;
-//    }
+    private static Logger log = LoggerFactory.getLogger(AreaController.class);
+
+    @Autowired
+    private AreaService areaService;
+
+    @RequestMapping(value = "/listarea", method = RequestMethod.GET)
+    private Map<String, Object> listArea() {
+        Map<String, Object> modelMap = new HashMap<String, Object>();
+
+        List<Area> areaList = new ArrayList<Area>();
+
+        areaList = areaService.getAreaList();
+
+        modelMap.put("areaList", areaList);
+
+        log.info("areaList");
+        return modelMap;
+    }
+
+    @RequestMapping(value = "/getareabyid", method = RequestMethod.GET)
+//    http://localhost:8082/admin/getareabyid?id=1
+    private Map<String, Object> getAreaById(Integer id) {
+        Map<String, Object> modelMap = new HashMap<String, Object>();
+
+        Area area = areaService.getAreaById(id);
+        modelMap.put("area", area);
+        return modelMap;
+    }
+
+    @RequestMapping(value = "/addarea", method = RequestMethod.POST)
+    private Map<String, Object> addArea(@RequestBody Area area) throws
+            JsonParseException, JsonMappingException, IOException {
+
+        System.out.println(area.toString());
+        Map<String, Object> modelMap = new HashMap<String, Object>();
+        modelMap.put("success", areaService.addArea(area));
+
+        return modelMap;
+    }
+
+    /**
+     * 修改区域信息，主要修改名字
+     *
+     * @return
+     * @throws IOException
+     * @throws JsonMappingException
+     * @throws JsonParseException
+     */
+    @RequestMapping(value = "/modifyarea", method = RequestMethod.POST)
+    private Map<String, Object> modifyArea(@RequestBody Area area)
+            throws JsonParseException, JsonMappingException, IOException {
+        Map<String, Object> modelMap = new HashMap<String, Object>();
+        // 修改区域信息
+        modelMap.put("success", areaService.modifyArea(area));
+        return modelMap;
+    }
+
+    @RequestMapping(value = "/removearea", method = RequestMethod.GET)
+    private Map<String, Object> removeArea(Integer areaId) {
+        Map<String, Object> modelMap = new HashMap<String, Object>();
+        // 修改区域信息
+        modelMap.put("success", areaService.deleteArea(areaId));
+        return modelMap;
+    }
 }

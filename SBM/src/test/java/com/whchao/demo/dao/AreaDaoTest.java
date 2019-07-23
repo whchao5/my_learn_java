@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
@@ -22,8 +23,6 @@ public class AreaDaoTest {
     @Autowired
     private AreaDao areaDao;
 
-    @Autowired
-    private UserInfoDao userInfoDao;
 
     @Test
     public void queryArea() {
@@ -47,68 +46,63 @@ public class AreaDaoTest {
     public void insertArea() throws Exception {
         // 创建一个区域
         Area area = new Area();
-        area.setName("测试区域4");
+        area.setName("测试区域");
         area.setCreateTime(new Date());
-//        area.setLastEditTime(new Date());
+        area.setLastEditTime(new Date());
         area.setPriority(1);
-        areaDao.save(area);
-//        int effectedNum = areaDao.save(area);
-        System.out.println();
+
+        System.out.println( areaDao.save(area));
 
 //        assertEquals(1, effectedNum);
     }
 
-//    @Test
-////    @Ignore
-//    public void updateArea() {
-//
-//        List<Area> areaList = areaDao.queryArea();
-//
-//        for (Area e : areaList) {
-//            if ("测试区域".equals(e.getName())) {
-//                assertEquals(1, e.getPriority().intValue());
-//                e.setPriority(2);
-//
-//                int effectedNum = areaDao.updateArea(e);
-//                assertEquals(1, effectedNum);
-//            }
-//        }
-//    }
-//
-//    @Test
-//    public void deleteArea() {
-//
-//        List<Area> areaList = areaDao.queryArea();
-//
-//        for (Area e : areaList) {
-//            if ("测试区域".equals(e.getName())) {
-//
-//                int effectedNum = areaDao.deleteArea(e.getId());
-//                assertEquals(1, effectedNum);
-//            }
-//        }
-//        areaList = areaDao.queryArea();
-//        assertEquals(false, areaList.isEmpty());
-//
-//    }
-//
-//
-//    @Test
-//    public void queryByName() {
-//        Area area = areaDao.findByName("东北");
-//        System.out.println(area);
-//
-////        assertEquals(1, area.getName());
-//        assertEquals(1, area.getId().intValue());
-//    }
+    @Test
+//    @Ignore   // 测试方法将被忽略，不被执行
+    public void updateArea() {
+
+        List<Area> areaList = areaDao.findAll();
+
+        for (Area e : areaList) {
+            if ("测试区域".equals(e.getName())) {
+                assertEquals(1, e.getPriority().intValue());
+                e.setPriority(2);
+
+                Area it=  areaDao.save(e);
+                assertEquals(2, it.getPriority().intValue());
+            }
+        }
+    }
+
+    @Ignore
+    @Test
+    @Transactional
+    public void deleteArea() {
+
+        List<Area> areaList = areaDao.queryArea();
+
+        for (Area e : areaList) {
+            if ("测试区域".equals(e.getName())) {
+
+                System.out.println(e.getId());
+                areaDao.deleteById(e.getId());
+//                assertEquals(false, effectedNum);
+            }
+        }
+        areaList = areaDao.queryArea();
+        assertEquals(false, areaList.isEmpty());
+
+    }
 
 
     @Test
-    public void queryUserInfo() {
-        UserInfo area = userInfoDao.findByUsername("admin");
-        System.out.println(area.toString());
+    public void queryByName() {
+        Area area = areaDao.findByName("东北");
+        System.out.println(area);
 
 //        assertEquals(1, area.getName());
-        assertEquals(1, area.getUid().intValue());
+        assertEquals(1, area.getId().intValue());
     }
+
+
+
 }
