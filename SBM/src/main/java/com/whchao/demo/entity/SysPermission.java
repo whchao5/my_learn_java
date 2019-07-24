@@ -1,10 +1,11 @@
 package com.whchao.demo.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
-public class SysPermission {
+public class SysPermission  implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

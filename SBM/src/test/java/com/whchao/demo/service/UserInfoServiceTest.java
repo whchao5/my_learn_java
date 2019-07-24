@@ -9,6 +9,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
 
+import static org.junit.Assert.assertEquals;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class UserInfoServiceTest {
@@ -22,5 +24,6 @@ public class UserInfoServiceTest {
         UserInfo userInfo = userInfoService.findByUsername("admin");
 
         System.out.println(userInfo);
+        assertEquals("admin", userInfo.getUsername());
     }
 }

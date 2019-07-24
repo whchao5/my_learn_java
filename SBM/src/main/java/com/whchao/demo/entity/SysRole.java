@@ -1,10 +1,11 @@
 package com.whchao.demo.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
-public class SysRole {
+public class SysRole  implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -74,15 +75,5 @@ public class SysRole {
 
     public void setUserInfos(List<UserInfo> userInfos) {
         this.userInfos = userInfos;
-    }
-
-    @Override
-    public String toString() {
-        return "SysRole{" +
-                "id=" + id +
-                ", role='" + role + '\'' +
-                ", description='" + description + '\'' +
-                ", available=" + available +
-                '}';
     }
 }
