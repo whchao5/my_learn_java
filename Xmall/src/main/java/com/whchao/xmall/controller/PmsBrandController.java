@@ -9,10 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,8 +22,6 @@ public class PmsBrandController {
 
     @Autowired
     private PmsBrandService pmsBrandService;
-
-
     @RequestMapping(value = "/listAll", method = RequestMethod.GET)
     @ResponseBody
     public Response<List<PmsBrand>> getListAll() {
@@ -41,6 +36,10 @@ public class PmsBrandController {
     public Response createBrand(@RequestBody PmsBrand pmsBrand, BindingResult result) {
         Response response;
 
+        if (result.hasErrors()) {
+            return Response.failed("no");
+        }
+
         logger.info(pmsBrand.toString());
         int count = pmsBrandService.createBrand(pmsBrand);
         if (count == 1) {
@@ -51,5 +50,38 @@ public class PmsBrandController {
             logger.debug("createBrand failed:{}", pmsBrand);
         }
         return response;
+    }
+
+    @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
+    @ResponseBody
+    public Response updateBrand(@PathVariable("id") Long id, @RequestBody PmsBrand pmsBrandDto, BindingResult result) {
+        Response response;
+
+        logger.info(pmsBrandDto.toString());
+        int count = pmsBrandService.updateBrand(id, pmsBrandDto);
+        if (count == 1) {
+            response = Response.success(pmsBrandDto);
+            logger.debug("updateBrand success:{}", pmsBrandDto);
+        } else {
+            response = Response.failed("操作失败");
+            logger.debug("updateBrand failed:{}", pmsBrandDto);
+        }
+        return response;
+    }
+
+
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+    @ResponseBody
+    public Response deleteBrand(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
+                                @RequestParam(value = "pageSize", defaultValue = "3") Integer pageSize,
+                                BindingResult result) {
+        return Response.success(pmsBrandService.listBrand(pageNum, pageSize));
+    }
+
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    @ResponseBody
+    public Response listBrand(@PathVariable("id") Long id,  BindingResult result) {
+
+        return Response.success(pmsBrandService.listAllBrand());
     }
 }

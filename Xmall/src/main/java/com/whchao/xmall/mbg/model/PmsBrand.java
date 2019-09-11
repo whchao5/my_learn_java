@@ -1,10 +1,13 @@
 package com.whchao.xmall.mbg.model;
 
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 
 public class PmsBrand implements Serializable {
     private Long id;
 
+
+    @NotEmpty(message="用户名不能为空")
     private String name;
 
     /**
