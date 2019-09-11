@@ -87,6 +87,8 @@ public class PmsBrandServiceTest {
         ObjectMapper Obj = new ObjectMapper();
 
         try {
+
+            System.out.println(Obj.writeValueAsString(page.getList()));
             System.out.println(Obj.writeValueAsString(pmsBrandService.listBrand(0,3)));
         } catch (IOException e) {
             e.printStackTrace();

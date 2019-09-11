@@ -1,21 +1,21 @@
 package com.whchao.xmall.common.api;
 
-public class Response<T> {
+public class ResponseResult<T> {
 
     private long code;
     private String message;
     private T data;
 
 
-    protected Response() {}
+    protected ResponseResult() {}
 
 
-    protected Response(long code, String message, T data) {
+    protected ResponseResult(long code, String message, T data) {
         this.code = code;
         this.message = message;
         this.data = data;
     }
-    protected Response(ResultCode resultCode, T data) {
+    protected ResponseResult(ResultCode resultCode, T data) {
         this.code = resultCode.getCode();
         this.message = resultCode.getMessage();
         this.data = data;
@@ -27,8 +27,8 @@ public class Response<T> {
      *
      * @param data 获取的数据
      */
-    public static <T> Response<T> success(T data) {
-        return new Response<>(ResultCode.SUCCESS, data);
+    public static <T> ResponseResult<T> success(T data) {
+        return new ResponseResult<>(ResultCode.SUCCESS, data);
     }
 
     /**
@@ -36,16 +36,16 @@ public class Response<T> {
      *
      * @param data 获取的数据
      */
-    public static <T> Response<T> successMessage(String message, T data) {
-        return new Response<>(ResultCode.SUCCESS.getCode(), message, data);
+    public static <T> ResponseResult<T> successMessage(String message, T data) {
+        return new ResponseResult<>(ResultCode.SUCCESS.getCode(), message, data);
     }
 
 
     /**
      * 参数验证失败返回结果
      */
-    public static <T> Response<T> failed(T data) {
-        return new Response<>(ResultCode.FAILED, data);
+    public static <T> ResponseResult<T> failed(T data) {
+        return new ResponseResult<>(ResultCode.FAILED, data);
     }
 
 
@@ -54,16 +54,16 @@ public class Response<T> {
      * 参数验证失败返回结果
      * @param message 提示信息
      */
-    public static <T> Response<T> validateFailed(String message) {
-        return new Response<>(ResultCode.VALIDATE_FAILED.getCode(), message,  null);
+    public static <T> ResponseResult<T> validateFailed(String message) {
+        return new ResponseResult<>(ResultCode.VALIDATE_FAILED.getCode(), message,  null);
     }
 
 
     /**
      * 未登录返回结果
      */
-    public static <T> Response<T> unauthorized(T data) {
-        return new Response<>(ResultCode.UNAUTHORIZED, data);
+    public static <T> ResponseResult<T> unauthorized(T data) {
+        return new ResponseResult<>(ResultCode.UNAUTHORIZED, data);
     }
 
 
@@ -71,8 +71,8 @@ public class Response<T> {
     /**
      * 未授权返回结果
      */
-    public static <T> Response<T> forbidden(T data) {
-        return new Response<>(ResultCode.FORBIDDEN, data);
+    public static <T> ResponseResult<T> forbidden(T data) {
+        return new ResponseResult<>(ResultCode.FORBIDDEN, data);
     }
 
 
