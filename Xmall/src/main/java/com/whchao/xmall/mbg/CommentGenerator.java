@@ -15,12 +15,11 @@ import java.util.Properties;
  * 自定义注释生成器
  * Created by macro on 2018/4/26.
  */
-public class CommentGenerator  extends DefaultCommentGenerator {
+public class CommentGenerator extends DefaultCommentGenerator {
 
-    private boolean addRemarkComments = false;
-    private static final String EXAMPLE_SUFFIX="Example";
-    private static final String API_MODEL_PROPERTY_FULL_CLASS_NAME="io.swagger.annotations.ApiModelProperty";
-
+    private              boolean addRemarkComments                  = false;
+    private static final String  EXAMPLE_SUFFIX                     = "Example";
+    private static final String  API_MODEL_PROPERTY_FULL_CLASS_NAME = "io.swagger.annotations.ApiModelProperty";
 
 
     /**
@@ -50,7 +49,7 @@ public class CommentGenerator  extends DefaultCommentGenerator {
             }
 
             //给model的字段添加swagger注解
-            field.addJavaDocLine("@ApiModelProperty(value = \""+remarks+"\")");
+            field.addJavaDocLine("@ApiModelProperty(value = \"" + remarks + "\")");
         }
     }
 
@@ -73,7 +72,8 @@ public class CommentGenerator  extends DefaultCommentGenerator {
     public void addJavaFileComment(CompilationUnit compilationUnit) {
         super.addJavaFileComment(compilationUnit);
         //只在model中添加swagger注解类的导入
-        if(!compilationUnit.isJavaInterface()&&!compilationUnit.getType().getFullyQualifiedName().contains(EXAMPLE_SUFFIX)){
+        if (!compilationUnit.isJavaInterface() &&
+                !compilationUnit.getType().getFullyQualifiedName().contains(EXAMPLE_SUFFIX)) {
             compilationUnit.addImportedType(new FullyQualifiedJavaType(API_MODEL_PROPERTY_FULL_CLASS_NAME));
         }
     }

@@ -32,6 +32,7 @@ public class PmsBrandController {
     @Autowired
     private PmsBrandService pmsBrandService;
 
+    @ApiOperation("获取所有品牌列表")
     @RequestMapping(value = "/listAll", method = RequestMethod.GET)
     @ResponseBody
     public ResponseResult<List<PmsBrand>> getListAll() {
@@ -39,7 +40,7 @@ public class PmsBrandController {
         return ResponseResult.success(pmsBrandService.listAllBrand());
     }
 
-    @ApiOperation("获取所有品牌列表")
+    @ApiOperation("添加品牌")
     @RequestMapping(value = "/createBrand", method = RequestMethod.POST)
     @ResponseBody
     public ResponseResult createBrand(@RequestBody PmsBrand pmsBrand, BindingResult result) {
