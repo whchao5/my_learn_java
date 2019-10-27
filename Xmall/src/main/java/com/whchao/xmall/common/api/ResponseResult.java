@@ -36,6 +36,15 @@ public class ResponseResult<T> {
      *
      * @param data 获取的数据
      */
+    public static <T> ResponseResult<T> success(T data, String message) {
+        return new ResponseResult<>(ResultCode.SUCCESS.getCode(), message, data);
+    }
+
+    /**
+     * 成功返回结果
+     *
+     * @param data 获取的数据
+     */
     public static <T> ResponseResult<T> successMessage(String message, T data) {
         return new ResponseResult<>(ResultCode.SUCCESS.getCode(), message, data);
     }
