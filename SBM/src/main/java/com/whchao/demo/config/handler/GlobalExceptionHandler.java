@@ -1,4 +1,4 @@
-package com.whchao.demo.handler;
+package com.whchao.demo.config.handler;
 
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -28,4 +28,17 @@ public class GlobalExceptionHandler {
         return map;
     }
 
+
+    @ExceptionHandler(value = CustomException.class)
+    @ResponseBody
+    public Map<String, Object> CustomExceptionHandler(HttpServletRequest rep, Exception e) throws Exception {
+
+        Map<String, Object> map = new HashMap<String, Object>();
+
+        CustomException exception = (CustomException) e;
+        map.put("code", exception.getCode());
+        map.put("errMsg", exception.getMessage());
+
+        return map;
+    }
 }

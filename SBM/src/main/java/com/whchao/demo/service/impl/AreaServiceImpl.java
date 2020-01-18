@@ -23,7 +23,7 @@ public class AreaServiceImpl implements AreaService {
 
     @Override
     public Area getAreaById(int id) {
-        return areaDao.queryAreaById(id);
+        return areaDao.findById(id);
     }
 
     @Override
@@ -35,9 +35,9 @@ public class AreaServiceImpl implements AreaService {
             area.setLastEditTime(new Date());
 
             try {
-                int effectedNum = areaDao.insertArea(area);
+                Area effectedNum = areaDao.save(area);
 
-                if (effectedNum > 0) {
+                if (effectedNum.getId() > 0) {
                     return true;
                 } else {
                     throw new RuntimeException("添加区错误");
@@ -59,8 +59,8 @@ public class AreaServiceImpl implements AreaService {
 
             try {
                 // 更新区域信息
-                int effectedNum = areaDao.updateArea(area);
-                if (effectedNum > 0) {
+                Area effectedNum = areaDao.save(area);
+                if (effectedNum.getId() > 0) {
                     return true;
                 } else {
                     throw new RuntimeException("更新区域信息失败!");
@@ -79,12 +79,9 @@ public class AreaServiceImpl implements AreaService {
         if (id > 0) {
 
             try {
-                int effectedNum = areaDao.deleteArea(id);
-                if (effectedNum > 0) {
-                    return true;
-                } else {
-                    throw new RuntimeException("删除区域信息失败!");
-                }
+                areaDao.deleteById(id);
+                return true;
+
             } catch (Exception e) {
                 throw new RuntimeException("删除区域信息失败:" + e.toString());
             }

@@ -1,14 +1,21 @@
 package com.whchao.demo.entity;
 
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
-public class Area {
+@Entity
+public class Area implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     private String  name;
     // 权重，越大越排前显示
     private Integer priority;
     private Date    createTime;
+
     private Date    lastEditTime;
 
     public Integer getId() {

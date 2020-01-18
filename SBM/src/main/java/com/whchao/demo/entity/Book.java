@@ -1,9 +1,13 @@
 package com.whchao.demo.entity;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.math.BigInteger;
 
 public class Book {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer bookId;
     private String name;
     private Integer number;

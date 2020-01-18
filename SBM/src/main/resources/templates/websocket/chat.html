@@ -1,0 +1,36 @@
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+</head>
+<body>
+<textarea id="content"></textarea>
+<input type="button" value="发送" onclick="send()"/>
+<div id="out">
+
+</div>
+<script th:src="@{sockjs.min.js}"></script>
+<script th:src="@{stomp.min.js}"></script>
+<script>
+    var sock = new SockJS("/endpointOneToOne");//连接"endpointOneToOne"
+    var stomp = Stomp.over(sock);
+    stomp.connect({},function(frame){
+        //订阅/user/queue/notice发送的消息，这里与在控制器的messagingTemplate.convertAndSendToUser中定义的订阅地址保持一致。
+        //这里多一个/user，并且这个/user是必须的，使用了/user才会发送消息到指定的用户
+        stomp.subscribe("/user/queue/notice",function(message){//
+            var out = document.getElementById("out");
+            var html = out.innerHTML;
+            out.innerHTML = html +"<br />"+message.body;
+        })
+    });
+
+    function send(){
+        var content = document.getElementById("content").value;
+        stomp.send("/chat",{},content);
+    }
+</script>
+</body>
+</html>

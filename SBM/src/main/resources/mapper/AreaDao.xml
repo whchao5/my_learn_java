@@ -32,4 +32,10 @@ SELECT id, name, priority,create_time, last_edit_time FROM area WHERE id=#{id}
     <delete id="deleteArea">
         delete from area where id = #{id}
     </delete>
+
+
+    <select id="findByName" resultType="com.whchao.demo.entity.Area">
+SELECT id, name, priority,create_time, last_edit_time FROM area WHERE name=#{name}
+    </select>
+
 </mapper>
