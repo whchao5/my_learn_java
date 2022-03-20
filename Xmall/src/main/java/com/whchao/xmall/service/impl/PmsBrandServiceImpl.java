@@ -21,7 +21,9 @@ public class PmsBrandServiceImpl implements PmsBrandService {
     @Override
     public List<PmsBrand> listAllBrand() {
 
-        return pmsBrandMapper.selectByExample(new PmsBrandExample());
+        PmsBrandExample pmsBrandExample = new PmsBrandExample();
+        pmsBrandExample.setDistinct(true);
+        return pmsBrandMapper.selectByExample(pmsBrandExample);
     }
 
     @Override

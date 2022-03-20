@@ -40,7 +40,14 @@
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.whchao.xmall.mbg.mapper"
                              targetProject="C:\Users\W\Documents\GitHub\my_learn_java\Xmall\src\main\java"/>
         <!--生成全部表tableName设为%-->
-        <table tableName="pms_brand">
+        <table tableName="ums_permission">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+
+        <table tableName="ums_role">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="ums_role_permission_relation">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
     </context>

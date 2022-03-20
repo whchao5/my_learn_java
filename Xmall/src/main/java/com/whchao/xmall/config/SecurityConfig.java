@@ -4,7 +4,10 @@ package com.whchao.xmall.config;
 import com.whchao.xmall.component.JwtAuthenticationTokenFilter;
 import com.whchao.xmall.component.RestAuthenticationEntryPoint;
 import com.whchao.xmall.component.RestfulAccessDeniedHandler;
+import com.whchao.xmall.dto.AdminUserDetails;
 import com.whchao.xmall.mbg.model.UmsAdmin;
+import com.whchao.xmall.mbg.model.UmsPermission;
+import com.whchao.xmall.service.UmsAdminService;
 import com.whchao.xmall.service.UmsMemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -34,8 +37,8 @@ import java.util.List;
 @EnableGlobalMethodSecurity(prePostEnabled=true)
 public class SecurityConfig  extends WebSecurityConfigurerAdapter {
 
-//    @Autowired
-//    private UmsAdminService adminService;
+    @Autowired
+    private UmsAdminService adminService;
 
     @Autowired
     private RestfulAccessDeniedHandler   restfulAccessDeniedHandler;
@@ -95,10 +98,10 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-
+    //        获取登录用户信息
     @Bean
     public UserDetailsService userDetailsService() {
-        //获取登录用户信息
+
         return username -> {
             UmsAdmin admin = adminService.getAdminByUsername(username);
             if (admin != null) {

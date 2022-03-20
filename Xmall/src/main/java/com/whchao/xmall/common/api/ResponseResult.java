@@ -49,12 +49,26 @@ public class ResponseResult<T> {
         return new ResponseResult<>(ResultCode.SUCCESS.getCode(), message, data);
     }
 
+    /**
+     * 失败返回结果
+     * @param errorCode 错误码
+     */
+    public static <T> ResponseResult<T> failed(IErrorCode errorCode) {
+        return new ResponseResult<T>(errorCode.getCode(), errorCode.getMessage(), null);
+    }
 
     /**
      * 参数验证失败返回结果
      */
-    public static <T> ResponseResult<T> failed(T data) {
-        return new ResponseResult<>(ResultCode.FAILED, data);
+    public static <T> ResponseResult<T> failed(String data) {
+        return new ResponseResult<>(ResultCode.FAILED.getCode(), data, null);
+    }
+
+    /**
+     * 参数验证失败返回结果
+     */
+    public static <T> ResponseResult<T> failed() {
+        return failed(ResultCode.FAILED);
     }
 
 

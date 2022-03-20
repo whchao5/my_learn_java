@@ -10,6 +10,7 @@ import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -113,6 +114,7 @@ public class PmsBrandController {
     @ApiOperation("获取指定id的品牌详情")
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody
+    @PreAuthorize("hasAuthority('pms:brand:read')")
     public ResponseResult getBrand(@PathVariable(value = "id") Long id) {
 
         PmsBrand brandList = pmsBrandService.getBrand(id);
